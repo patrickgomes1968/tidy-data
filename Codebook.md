@@ -35,82 +35,201 @@ namedFeaturesWanted <- gsub('[()]', '', namedFeaturesWanted)
 
 ## Measurements: Just the names from the features file containing "mean" or "std"
 
-* `tBodyAcc-meanX`
-* `tBodyAcc-meanY`
-* `tBodyAcc-meanZ`
-* `tBodyAcc-stdX`
-* `tBodyAcc-stdY`
-* `tBodyAcc-stdZ`
-* `tGravityAcc-meanX`
-* `tGravityAcc-meanY`
-* `tGravityAcc-meanZ`
-* `tGravityAcc-stdX`
-* `tGravityAcc-stdY`
-* `tGravityAcc-stdZ`
-* `tBodyAccJerk-meanX`
-* `tBodyAccJerk-meanY`
-* `tBodyAccJerk-meanZ`
-* `tBodyAccJerk-stdX`
-* `tBodyAccJerk-stdY`
-* `tBodyAccJerk-stdZ`
-* `tBodyGyro-meanX`
-* `tBodyGyro-meanY`
-* `tBodyGyro-meanZ`
-* `tBodyGyro-stdX`
-* `tBodyGyro-stdY`
-* `tBodyGyro-stdZ`
-* `tBodyGyroJerk-meanX`
-* `tBodyGyroJerk-meanY`
-* `tBodyGyroJerk-meanZ`
-* `tBodyGyroJerk-stdX`
-* `tBodyGyroJerk-stdY`
-* `tBodyGyroJerk-stdZ`
-* `tBodyAccMag-mean`
-* `tBodyAccMag-std`
-* `tGravityAccMag-mean`
-* `tGravityAccMag-std`
-* `tBodyAccJerkMag-mean`
-* `tBodyAccJerkMag-std`
-* `tBodyGyroMag-mean`
-* `tBodyGyroMag-std`
-* `tBodyGyroJerkMag-mean`
-* `tBodyGyroJerkMag-std`
-* `fBodyAcc-meanX`
-* `fBodyAcc-meanY`
-* `fBodyAcc-meanZ`
-* `fBodyAcc-stdX`
-* `fBodyAcc-stdY`
-* `fBodyAcc-stdZ`
-* `fBodyAcc-meanFreqX`
-* `fBodyAcc-meanFreqY`
-* `fBodyAcc-meanFreqZ`
-* `fBodyAccJerk-meanX`
-* `fBodyAccJerk-meanY`
-* `fBodyAccJerk-meanZ`
-* `fBodyAccJerk-stdX`
-* `fBodyAccJerk-stdY`
-* `fBodyAccJerk-stdZ`
-* `fBodyAccJerk-meanFreqX`
-* `fBodyAccJerk-meanFreqY`
-* `fBodyAccJerk-meanFreqZ`
-* `fBodyGyro-meanX`
-* `fBodyGyro-meanY`
-* `fBodyGyro-meanZ`
-* `fBodyGyro-stdX`
-* `fBodyGyro-stdY`
-* `fBodyGyro-stdZ`
-* `fBodyGyro-meanFreqX`
-* `fBodyGyro-meanFreqY`
-* `fBodyGyro-meanFreqZ`
-* `fBodyAccMag-mean`
-* `fBodyAccMag-std`
-* `fBodyAccMag-meanFreq`
-* `fBodyBodyAccJerkMag-mean`
-* `fBodyBodyAccJerkMag-std`
-* `fBodyBodyAccJerkMag-meanFreq`
-* `fBodyBodyGyroMag-mean`
-* `fBodyBodyGyroMag-std`
-* `fBodyBodyGyroMag-meanFreq`
-* `fBodyBodyGyroJerkMag-mean`
-* `fBodyBodyGyroJerkMag-std`
-* `fBodyBodyGyroJerkMag-meanFreq`
+tBodyAcc-mean()-X
+
+Body acceleration signal derived in the time domain, mean, X-direction. Range: [-1,1]
+tBodyAcc-mean()-Y
+
+Body acceleration signal derived in the time domain, mean, Z-direction. Range: [-1,1]
+tBodyAcc-mean()-Z
+
+Body acceleration signal derived in the time domain, mean, Y-direction. Range: [-1,1]
+tBodyAcc-std()-X
+
+Body acceleration signal derived in the time domain, standard deviation, X-direction. Range: [-1,1]
+tBodyAcc-std()-Y
+
+Body acceleration signal derived in the time domain, standard deviation, Z-direction. Range: [-1,1]
+tBodyAcc-std()-Z
+
+Body acceleration signal derived in the time domain, standard deviation, Y-direction. Range: [-1,1]
+tGravityAcc-mean()-X
+
+Gravity acceleration signal derived in the time domain, mean, X-direction. Range: [-1,1]
+tGravityAcc-mean()-Y
+
+Gravity acceleration signal derived in the time domain, mean, Y-direction. Range: [-1,1]
+tGravityAcc-mean()-Z
+
+Gravity acceleration signal derived in the time domain, mean, Z-direction. Range: [-1,1]
+tGravityAcc-std()-X
+
+Gravity acceleration signal derived in the time domain, standard deviation, X-direction. Range: [-1,1]
+tGravityAcc-std()-Y
+
+Gravity acceleration signal derived in the time domain, standard deviation, Y-direction. Range: [-1,1]
+tGravityAcc-std()-Z
+
+Gravity acceleration signal derived in the time domain, standard deviation, Z-direction. Range: [-1,1]
+tBodyAccJerk-mean()-X
+
+Body acceleration signal derived in the time domain, body linear acceleration (Jerk) signal, mean, X-direction. Range: [-1,1]
+tBodyAccJerk-mean()-Y
+
+Body acceleration signal derived in the time domain, body linear acceleration (Jerk) signal, mean, Y-direction. Range: [-1,1]
+tBodyAccJerk-mean()-Z
+
+Body acceleration signal derived in the time domain, body linear acceleration (Jerk) signal, mean, Z-direction. Range: [-1,1]
+tBodyAccJerk-std()-X
+
+Body acceleration signal derived in the time domain, body linear acceleration (Jerk) signal, standard deviation, X-direction. Range: [-1,1]
+tBodyAccJerk-std()-Y
+
+Body acceleration signal derived in the time domain, body linear acceleration (Jerk) signal, standard deviation, Y-direction. Range: [-1,1]
+tBodyAccJerk-std()-Z
+
+Body acceleration signal derived in the time domain, body linear acceleration (Jerk) signal, standard deviation, Z-direction. Range: [-1,1]
+tBodyGyro-mean()-X
+
+Gyroscope signal derived in the time domain, mean, X-direction. Range: [-1,1]
+tBodyGyro-mean()-Y
+
+Gyroscope signal derived in the time domain, mean, Y-direction. Range: [-1,1]
+tBodyGyro-mean()-Z
+
+Gyroscope signal derived in the time domain, mean, Z-direction. Range: [-1,1]
+tBodyGyro-std()-X
+
+Gyroscope signal derived in the time domain, standard deviation, X-direction. Range: [-1,1]
+tBodyGyro-std()-Y
+
+Gyroscope signal derived in the time domain, standard deviation, Y-direction. Range: [-1,1]
+tBodyGyro-std()-Z
+
+Gyroscope signal derived in the time domain, standard deviation, Z-direction. Range: [-1,1]
+tBodyGyroJerk-mean()-X
+
+Gyroscope signal derived in the time domain, angular velocity (Jerk) signal, mean, X-direction. Range: [-1,1]
+tBodyGyroJerk-mean()-Y
+
+Gyroscope signal derived in the time domain, angular velocity (Jerk) signal, mean, Y-direction. Range: [-1,1]
+tBodyGyroJerk-mean()-Z
+
+Gyroscope signal derived in the time domain, angular velocity (Jerk) signal, mean, Z-direction. Range: [-1,1]
+tBodyGyroJerk-std()-X
+
+Gyroscope signal derived in the time domain, angular velocity (Jerk) signal, standard deviation, X-direction. Range: [-1,1]
+tBodyGyroJerk-std()-Y
+
+Gyroscope signal derived in the time domain, angular velocity (Jerk) signal, standard deviation, Y-direction. Range: [-1,1]
+tBodyGyroJerk-std()-Z
+
+Gyroscope signal derived in the time domain, angular velocity (Jerk) signal, standard deviation, Z-direction. Range: [-1,1]
+tBodyAccMag-mean()
+
+Body acceleration signal derived in the time domain, magnitude of three-dimensional signal using Euclidian norm, mean. Range: [-1,1]
+tBodyAccMag-std()
+
+Body acceleration signal derived in the time domain, magnitude of three-dimensional signal using Euclidian norm, standard deviation. Range: [-1,1]
+tGravityAccMag-mean()
+
+Gravity acceleration signal derived in the time domain, magnitude of three-dimensional signal using Euclidian norm, mean. Range: [-1,1]
+tGravityAccMag-std()
+
+Gravity acceleration signal derived in the time domain, magnitude of three-dimensional signal using Euclidian norm, standard deviation. Range: [-1,1]
+tBodyAccJerkMag-mean()
+
+Body acceleration signal derived in the time domain, body linear acceleration (Jerk) signal, magnitude of three-dimensional signal using Euclidian norm, mean. Range: [-1,1]
+tBodyAccJerkMag-std()
+
+Body acceleration signal derived in the time domain, body linear acceleration (Jerk) signal, magnitude of three-dimensional signal using Euclidian norm, standard deviation. Range: [-1,1]
+tBodyGyroMag-mean()
+
+Gyroscope signal derived in the time domain, magnitude of three-dimensional signal using Euclidian norm, mean. Range: [-1,1]
+tBodyGyroMag-std()
+
+Gyroscope signal derived in the time domain, magnitude of three-dimensional signal using Euclidian norm, standard deviation. Range: [-1,1]
+tBodyGyroJerkMag-mean()
+
+Gyroscope signal derived in the time domain, angular velocity (Jerk) signal, magnitude of three-dimensional signal using Euclidian norm, mean. Range: [-1,1]
+tBodyGyroJerkMag-std()
+
+Gyroscope signal derived in the time domain, angular velocity (Jerk) signal, magnitude of three-dimensional signal using Euclidian norm, standard deviation. Range: [-1,1]
+fBodyAcc-mean()-X
+
+Body acceleration signal derived in the frequency domain, mean, X-direction. Range: [-1,1]
+fBodyAcc-mean()-Y
+
+Body acceleration signal derived in the frequency domain, mean, Y-direction. Range: [-1,1]
+fBodyAcc-mean()-Z
+
+Body acceleration signal derived in the frequency domain, mean, Z-direction. Range: [-1,1]
+fBodyAcc-std()-X
+
+Body acceleration signal derived in the frequency domain, standard deviation, X-direction. Range: [-1,1]
+fBodyAcc-std()-Y
+
+Body acceleration signal derived in the frequency domain, standard deviation, Y-direction. Range: [-1,1]
+fBodyAcc-std()-Z
+
+Body acceleration signal derived in the frequency domain, standard deviation, Z-direction. Range: [-1,1]
+fBodyAccJerk-mean()-X
+
+Body acceleration signal derived in the frequency domain, body linear acceleration (Jerk) signal, mean, X-direction. Range: [-1,1]
+fBodyAccJerk-mean()-Y
+
+Body acceleration signal derived in the frequency domain, body linear acceleration (Jerk) signal, mean, Y-direction. Range: [-1,1]
+fBodyAccJerk-mean()-Z
+
+Body acceleration signal derived in the frequency domain, body linear acceleration (Jerk) signal, mean, Z-direction. Range: [-1,1]
+fBodyAccJerk-std()-X
+
+Body acceleration signal derived in the frequency domain, body linear acceleration (Jerk) signal, standard deviation, X-direction. Range: [-1,1]
+fBodyAccJerk-std()-Y
+
+Body acceleration signal derived in the frequency domain, body linear acceleration (Jerk) signal, standard deviation, Y-direction. Range: [-1,1]
+fBodyAccJerk-std()-Z
+
+Body acceleration signal derived in the frequency domain, body linear acceleration (Jerk) signal, standard deviation, Z-direction. Range: [-1,1]
+fBodyGyro-mean()-X
+
+Gyroscope signal derived in the frequency domain, mean, X-direction. Range: [-1,1]
+fBodyGyro-mean()-Y
+
+Gyroscope signal derived in the frequency domain, mean, Y-direction. Range: [-1,1]
+fBodyGyro-mean()-Z
+
+Gyroscope signal derived in the frequency domain, mean, Z-direction. Range: [-1,1]
+fBodyGyro-std()-X
+
+Gyroscope signal derived in the frequency domain, standard deviation, X-direction. Range: [-1,1]
+fBodyGyro-std()-Y
+
+Gyroscope signal derived in the frequency domain, standard deviation, Y-direction. Range: [-1,1]
+fBodyGyro-std()-Z
+
+Gyroscope signal derived in the frequency domain, standard deviation, Z-direction. Range: [-1,1]
+fBodyAccMag-mean()
+
+Body acceleration signal derived in the frequency domain, magnitude of three-dimensional signal using Euclidian norm, mean. Range: [-1,1]
+fBodyAccMag-std()
+
+Body acceleration signal derived in the frequency domain, magnitude of three-dimensional signal using Euclidian norm, standard deviation. Range: [-1,1]
+fBodyAccJerkMag-mean()
+
+Body acceleration signal derived in the frequency domain, body linear acceleration (Jerk) signal, magnitude of three-dimensional signal using Euclidian norm, mean. Range: [-1,1]
+fBodyAccJerkMag-std()
+
+Body acceleration signal derived in the frequency domain, body linear acceleration (Jerk) signal, magnitude of three-dimensional signal using Euclidian norm, standard deviation. Range: [-1,1]
+fBodyGyroMag-mean()
+
+Gyroscope signal derived in the frequency domain, magnitude of three-dimensional signal using Euclidian norm, mean. Range: [-1,1]
+fBodyGyroMag-std()
+
+Gyroscope signal derived in the frequency domain, magnitude of three-dimensional signal using Euclidian norm, standard deviation. Range: [-1,1]
+fBodyGyroJerkMag-mean()
+
+Gyroscope signal derived in the frequency domain, angular velocity (Jerk) signal, magnitude of three-dimensional signal using Euclidian norm, mean. Range: [-1,1]
+fBodyGyroJerkMag-std()
+
+Gyroscope signal derived in the frequency domain, angular velocity (Jerk) signal, magnitude of three-dimensional signal using Euclidian norm, standard deviation. Range: [-1,1]
