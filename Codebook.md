@@ -1,6 +1,22 @@
 # Code Book
 
-This code book summarizes the resulting data fields in `tidy.txt`.
+##Transformations performed by the Script
+
+Merges the training and the test sets to create one data set.
+Extracts only the measurements on the mean and standard deviation for each measurement.
+Uses descriptive activity names to name the activities in the data set
+Appropriately labels the data set with descriptive variable names.
+From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject.
+Units
+
+All units normalized and bounded within [-1,1]
+
+##Variable name cleanup
+
+As part of the tidying process the variable names are cleaned up using the following transformations using the guidelines described in the lesson (lower case, no underscores, descriptive names...):
+
+# get rid of the parenthesis. Since there were no underscores or spaces, nothing else was required. I retained the dashes.
+namedFeaturesWanted <- gsub('[()]', '', namedFeaturesWanted)
 
 ## Identifiers
 
