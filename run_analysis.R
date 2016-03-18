@@ -1,0 +1,82 @@
+
+
+setwd("./Data")
+
+filename <- "getdata_dataset.zip"
+
+## Download and unzip the dataset:
+if (!file.exists(filename)){
+  fileURL <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip "
+  download.file(fileURL, filename, method="curl")
+}  
+if (!file.exists("UCI HAR Dataset")) { 
+  unzip(filename) 
+}
+
+## 1. Load activity labels + features
+
+activityLabels <- read.table("UCI HAR Dataset/activity_labels.txt")
+features <- read.table("UCI HAR Dataset/features.txt")
+
+# the columns are factors, so convert the second col
+# to character in order to properly link/export later
+activityLabels[,2] <- as.character(activityLabels[,2])
+features[,2] <- as.character(features[,2])
+
+
+## 2. Extract only the data on mean and standard deviation
+
+# of the 561 features in the table, choose only those containing "mean" or "std"
+featuresWanted <- grep(".*mean.*|.*std.*", features[,2])
+    #> length(featuresWanted)
+    # [1] 79
+    # this is a vector containing indices of the rows containing "mean" or "std"
+
+# create a vector with the actual names for the integers 
+namedFeaturesWanted <- as.character(features[featuresWanted,2])
+# get rid of the dashes and parenthesis. And capitalise Mean and Std
+namedFeaturesWanted <- gsub('[()]', '', namedFeaturesWanted)
+
+
+
+
+# Now load the 'actual' datasets -- the ones with the user data
+trainData <- read.table("UCI HAR Dataset/train/X_train.txt")
+# subset train to have only the variables corressponding to featuresWanted
+# this reduces the variables in train from 563 to 79
+trainData <- trainData[featuresWanted]
+# for some reason the activities are in a file named Y-train.txt, according to the Codebook.
+trainActivities <- read.table("UCI HAR Dataset/train/Y_train.txt")
+trainSubjects <- read.table("UCI HAR Dataset/train/subject_train.txt")
+# each of the above tabes contain (corresponding) 7532 rows. 
+# Not sure why they weren't in one table to begin with, but okay, we'll bind the tables ourselves: 
+trainData <- cbind(trainSubjects, trainActivities, train) 
+
+# do the same for the test datasets
+testData <- read.table("UCI HAR Dataset/test/X_test.txt")
+testData <- testData[featuresWanted]
+testActivities <- read.table("UCI HAR Dataset/test/Y_test.txt")
+testSubjects <- read.table("UCI HAR Dataset/test/subject_test.txt")
+testData <- cbind(testSubjects, testActivities, test)
+
+# merge datasets and add labels
+mergedData <- rbind(trainData, testData)
+
+
+## 4.Appropriately label the data set with descriptive variable names.
+colnames(mergedData) <- c("subject", "activity", namedFeaturesWanted)
+
+
+## 5. From the data set in step 4, creates a second, independent tidy data set
+##  with the average of each variable for each activity and each subject.
+
+#turn activities & subjects into factors in order to show names in rows after melting
+# and to melt and cast speedily
+mergedData$activity <- factor(mergedData$activity, levels = activityLabels[,1], labels = activityLabels[,2])
+mergedData$subject <- as.factor(mergedData$subject)
+
+meltedMergedData <- melt(mergedData, id = c("subject", "activity"))
+meanMergedData <- dcast(meltedMergedData, subject + activity ~ variable, mean)
+
+write.table(meanMergedData, "tidy1.txt", row.names = FALSE, quote = FALSE)
+
