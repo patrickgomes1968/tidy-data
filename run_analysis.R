@@ -1,4 +1,4 @@
-
+library(reshape2)
 
 setwd("./Data")
 
@@ -26,7 +26,7 @@ features[,2] <- as.character(features[,2])
 
 ## 2. Extract only the data on mean and standard deviation
 
-# of the 561 features in the table, choose only those containing "mean" or "std"
+# Of the 561 features in the table, choose only those containing "mean" or "std"
 featuresWanted <- grep(".*mean.*|.*std.*", features[,2])
     #> length(featuresWanted)
     # [1] 79
@@ -34,34 +34,41 @@ featuresWanted <- grep(".*mean.*|.*std.*", features[,2])
 
 # create a vector with the actual names for the integers 
 namedFeaturesWanted <- as.character(features[featuresWanted,2])
-# get rid of the dashes and parenthesis. And capitalise Mean and Std
+#   get rid of the parenthesis. Note: I did not get rid of the dashes or
+#   capitalise Mean and Std because that is not required, IMHO
 namedFeaturesWanted <- gsub('[()]', '', namedFeaturesWanted)
 
-
-
+#   Release memory
+rm(features)
 
 # Now load the 'actual' datasets -- the ones with the user data
 trainData <- read.table("UCI HAR Dataset/train/X_train.txt")
 # subset train to have only the variables corressponding to featuresWanted
 # this reduces the variables in train from 563 to 79
 trainData <- trainData[featuresWanted]
+
 # for some reason the activities are in a file named Y-train.txt, according to the Codebook.
 trainActivities <- read.table("UCI HAR Dataset/train/Y_train.txt")
 trainSubjects <- read.table("UCI HAR Dataset/train/subject_train.txt")
 # each of the above tabes contain (corresponding) 7532 rows. 
 # Not sure why they weren't in one table to begin with, but okay, we'll bind the tables ourselves: 
-trainData <- cbind(trainSubjects, trainActivities, train) 
+trainData <- cbind(trainSubjects, trainActivities, trainData) 
 
 # do the same for the test datasets
 testData <- read.table("UCI HAR Dataset/test/X_test.txt")
 testData <- testData[featuresWanted]
 testActivities <- read.table("UCI HAR Dataset/test/Y_test.txt")
 testSubjects <- read.table("UCI HAR Dataset/test/subject_test.txt")
-testData <- cbind(testSubjects, testActivities, test)
+testData <- cbind(testSubjects, testActivities, testData)
 
-# merge datasets and add labels
+# Release memory
+rm(trainActivities, trainSubjects, testActivities, testSubjects)
+
+# merge datasets (bind Rows this time)
 mergedData <- rbind(trainData, testData)
 
+#Release memory
+rm(trainData,testData)
 
 ## 4.Appropriately label the data set with descriptive variable names.
 colnames(mergedData) <- c("subject", "activity", namedFeaturesWanted)
@@ -78,5 +85,5 @@ mergedData$subject <- as.factor(mergedData$subject)
 meltedMergedData <- melt(mergedData, id = c("subject", "activity"))
 meanMergedData <- dcast(meltedMergedData, subject + activity ~ variable, mean)
 
-write.table(meanMergedData, "tidy1.txt", row.names = FALSE, quote = FALSE)
+write.table(meanMergedData, "tidy2.txt", row.names = FALSE, quote = FALSE)
 
